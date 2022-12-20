@@ -87,7 +87,7 @@ var finances = [
     ['Feb-2017', 671099]
 ];
 
-var Months = 0;
+var TotalMonths = 0;
 var NetTotal = 0;
 var Change = 0;
 var TotalChange = 0;
@@ -103,13 +103,11 @@ var GRDMonth;
 var DecreaseMonth = 0;
 var DecreaseAmount = 0;
 var ArDecrease = [];
-var month;
-
 
 
 
 // The total number of months included in the dataset.
-Months = finances.length;
+TotalMonths = finances.length;
 
 // figure out how many rows there are in the finances variable
 
@@ -123,7 +121,6 @@ for (i = 0; i < finances.length; i++) {
         Change = finances[i][1] - finances[i - 1][1];
         diffmonth = finances[i][0];
         TotalChange = TotalChange + Change;
-
         //Record all changes
         ArDifference.push([diffmonth, Change]);
     }
@@ -133,18 +130,12 @@ for (i = 0; i < finances.length; i++) {
         IncreaseAmount = Change;
         IncreaseMonth = finances[i][0];
         ArIncrease.push([IncreaseMonth, IncreaseAmount]);
-        console.log("IncreaseAmount" + IncreaseAmount);
-        console.log("Increase Array" + ArIncrease);
-
     }
     //Record Decrease
     if (Change < DecreaseAmount) {
         DecreaseAmount = Change;
         DecreaseMonth = finances[i][0];
         ArDecrease.push([DecreaseMonth, DecreaseAmount]);
-        console.log("Decrease Amount" + DecreaseAmount);
-        console.log("Decrease Array" + ArDecrease);
-
     }
 
 }
@@ -152,18 +143,10 @@ for (i = 0; i < finances.length; i++) {
 //Find Greatest Increase by comparing difference between all increases
 for (i = 1; i < ArIncrease.length; i++) {
     var diff = ArIncrease[i - 1][1];
-    console.log(ArIncrease[i][1]);
     if (ArIncrease[i][1] > diff) {
         GrIncrease = ArIncrease[i][1];
         GrIMonth = ArIncrease[i][0];
-
-
-
     }
-
-    
-
-
 }
 
 //Find Greatest Decrease by comparing difference between all Decreases
@@ -172,52 +155,37 @@ for (i = 1; i < ArDecrease.length; i++) {
     if (ArDecrease[i][1] < diff) {
         GrDecrease = ArDecrease[i][1];
         GrDMonth = ArDecrease[i][0];
-
-
     }
 }
-
-
-
-
-console.log("Greatest increase in Profits was in " + GrIMonth + " of amount $" + GrIncrease);
-console.log("Greatest decrease in Losses was in " + GrDMonth + " of amount $" + GrDecrease);
-
 
 // The average of the changes in Profit/Losses over the entire period.
 // You will need to track what the total change in profits is from month to month and then find the average.
 // (Total/total number of changes) ===> total change/(months - 1)
-Average = (TotalChange / (Months - 1)).toFixed(2);
+Average = (TotalChange / (TotalMonths - 1)).toFixed(2);
 
 
-// maybe put all the changes into an array? using .push(...) ?
+// console output format!
 
-// The greatest increase in profits (date and amount) over the entire period.
-// start with 0
-//   check the last increase. If it's bigger than 0, keep track of the new biggest one.
-//   in a loop
-// The greatest decrease in losses (date and amount) over the entire period.
+console.log("Total Months = " + TotalMonths);
+document.getElementById("TotalMonths").innerHTML = "Total Months: " + TotalMonths+" Months";
 
-// // console output format!
 
-// console.log("Total Months = " + Months);
+console.log("Net Total = " + NetTotal);
+document.getElementById("NetTotal").innerHTML = "Net Total : $" + NetTotal;
 
-// console.log("Net Total = " + NetTotal);
+console.log("Total Change" + TotalChange);
 
-// console.log("Total Change" + TotalChange);
 
-// console.log("Average of change=" + Average);
+console.log("Average of change=" + Average);
+document.getElementById("Average").innerHTML = "Average  Change: $" + Average;
 
-// console.log("Change Array size " + ArDifference);
+console.log("Greatest increase in Profits was in " + GrIMonth + " of amount $" + GrIncrease);
 
-// console.log("IncreaseAmount" + IncreaseAmount);
-// console.log("Increase Array" + ArIncrease);
+document.getElementById("GreatestIncrease").innerHTML = "Greatest Increase in Profits: " + GrIMonth + " ($" + GrIncrease + ")";
 
-// console.log("Decrease Amount" + DecreaseAmount);
-// console.log("Decrease Array" + ArDecrease);
+console.log("Greatest decrease in Losses was in " + GrDMonth + " of amount $" + GrDecrease);
 
-// console.log("Greatest Increase" + GreatestIncrease)
-
+document.getElementById("GreatestDecrease").innerHTML = "Greatest Decrease in Profits: " + GrDMonth + " ($" + GrDecrease + ")";
 
 
 
