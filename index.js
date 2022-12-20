@@ -167,7 +167,7 @@ Average = (TotalChange / (TotalMonths - 1)).toFixed(2);
 // console output format!
 
 console.log("Total Months = " + TotalMonths);
-document.getElementById("TotalMonths").innerHTML = "Total Months: " + TotalMonths+" Months";
+document.getElementById("TotalMonths").innerHTML = "Total Months: " + TotalMonths + " Months";
 
 
 console.log("Net Total = " + NetTotal);
