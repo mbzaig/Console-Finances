@@ -40,12 +40,7 @@ The JavaScript code analyzes the records to calculate each of the following:
      
 
 ---
-## Usage
 
-
-The website has been designed to work under two view ports, greater than 800px width and less than 800px
-
----
     
 ![Site Demo](/images/Demo.png) 
 
