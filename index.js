@@ -141,7 +141,7 @@ for (i = 0; i < finances.length; i++) {
 }
 
 //Find Greatest Increase by comparing difference between all increases
-for (i = 1; i < ArIncrease.length; i++) {
+for (j = 1; j < ArIncrease.length; j++) {
     var diff = ArIncrease[i - 1][1];
     if (ArIncrease[i][1] > diff) {
         GrIncrease = ArIncrease[i][1];
@@ -150,7 +150,7 @@ for (i = 1; i < ArIncrease.length; i++) {
 }
 
 //Find Greatest Decrease by comparing difference between all Decreases
-for (i = 1; i < ArDecrease.length; i++) {
+for (k = 1; k < ArDecrease.length; k++) {
     diff = ArDecrease[i - 1][1];
     if (ArDecrease[i][1] < diff) {
         GrDecrease = ArDecrease[i][1];
