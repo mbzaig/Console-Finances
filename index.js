@@ -141,20 +141,20 @@ for (i = 0; i < finances.length; i++) {
 }
 
 //Find Greatest Increase by comparing difference between all increases
-for (j = 1; j < ArIncrease.length; j++) {
-    var diff = ArIncrease[j - 1][1];
-    if (ArIncrease[j][1] > diff) {
-        GrIncrease = ArIncrease[j][1];
-        GrIMonth = ArIncrease[j][0];
+for (i = 1; i < ArIncrease.length; i++) {
+    var diff = ArIncrease[i - 1][1];
+    if (ArIncrease[i][1] > diff) {
+        GrIncrease = ArIncrease[i][1];
+        GrIMonth = ArIncrease[i][0];
     }
 }
 
 //Find Greatest Decrease by comparing difference between all Decreases
-for (k = 1; k < ArDecrease.length; k++) {
-    diff = ArDecrease[k - 1][1];
-    if (ArDecrease[k][1] < diff) {
-        GrDecrease = ArDecrease[k][1];
-        GrDMonth = ArDecrease[k][0];
+for (i = 1; i < ArDecrease.length; i++) {
+    diff = ArDecrease[i - 1][1];
+    if (ArDecrease[i][1] < diff) {
+        GrDecrease = ArDecrease[i][1];
+        GrDMonth = ArDecrease[i][0];
     }
 }
 
